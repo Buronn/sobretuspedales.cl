@@ -1,0 +1,72 @@
+
+html{
+    background-image: url(img/Background\ gradient.png);
+    overflow-y: hidden;
+    padding-left: 17%;
+    cursor: grab;
+   
+}
+
+.map{
+    width: auto;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+    
+}
+html.swal2-shown,
+body.swal2-shown {
+  overflow-x: auto !important;
+}
+.position-absolute {
+    position: absolute !important; 
+
+}
+.bike{
+    position: absolute;
+    width: 13vh;
+}
+.fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+  }
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+.drop-in {
+    animation: dropIn ease 1s;
+    -webkit-animation: dropIn ease 1s;
+    -moz-animation: dropIn ease 1s;
+    -o-animation: dropIn ease 1s;
+    -ms-animation: dropIn ease 1s;
+  }
+  @keyframes dropIn{
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+.zoom{
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+.zoom:hover {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
