@@ -317,6 +317,7 @@ function addBike(id) {
         html: "<iframe id='yt' style='position: sticky;width: "+map.offsetWidth* 0.4 + "px"+";height: "+map.offsetHeight* 0.3 + "px"+";' src='https://www.youtube.com/embed/" + actual.video + "'>",
         showCloseButton: true,
         overflowY: 'hidden',
+        backdrop: false,
         height: map.offsetHeight * 0.4 + "px",
         width: map.offsetWidth * 0.5+ "px",
         target: document.getElementById(idiv),

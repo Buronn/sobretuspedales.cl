@@ -2,10 +2,10 @@
 html{
     background-image: url(img/Background\ gradient.png);
     overflow-y: hidden;
-    padding-left: 17%;
     cursor: grab;
-   
+    padding-left: 17%;
 }
+
 
 .map{
     width: auto;
