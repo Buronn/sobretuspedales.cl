@@ -216,6 +216,7 @@ window.addEventListener('DOMSubtreeModified', function () {
 }, false);
 
 document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
 
     var bikes = document.getElementsByClassName("bike");
     var map = document.getElementById("stgo");
@@ -234,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bike.style.top = (mapPosition.top + (mapHeight * data.lugares[bikeIdInt].y / 100)) + "px";
         bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
     }
+    }, 1000);
 });
 const slider = document.querySelector('html');
 let isDown = false;
