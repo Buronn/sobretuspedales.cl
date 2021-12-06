@@ -13,6 +13,7 @@ html{
     position: absolute;
     overflow: hidden;
     pointer-events: none;
+    opacity: 0;
     
 }
 html.swal2-shown,
@@ -21,11 +22,11 @@ body.swal2-shown {
 }
 .position-absolute {
     position: absolute !important; 
-
 }
 .bike{
     position: absolute;
     width: 13vh;
+    opacity: 0;
 }
 .fade-in {
     animation: fadeIn ease 2s;
@@ -33,6 +34,7 @@ body.swal2-shown {
     -moz-animation: fadeIn ease 2s;
     -o-animation: fadeIn ease 2s;
     -ms-animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn 1.0s forwards;
   }
   @keyframes fadeIn{
     0% {
@@ -43,17 +45,20 @@ body.swal2-shown {
     }
   }
 .drop-in {
-    animation: dropIn ease 1s;
-    -webkit-animation: dropIn ease 1s;
-    -moz-animation: dropIn ease 1s;
-    -o-animation: dropIn ease 1s;
-    -ms-animation: dropIn ease 1s;
+    animation: dropIn ease 3s;
+    -webkit-animation: dropIn ease 3s;
+    -moz-animation: dropIn ease 3s;
+    -o-animation: dropIn ease 3s;
+    -ms-animation: dropIn ease 3s;
+    -webkit-animation: dropIn 1.0s forwards;
   }
   @keyframes dropIn{
     0% {
+      opacity:0;
       transform: translateY(-50%);
     }
     100% {
+      opacity:1;
       transform: translateY(0);
     }
   }
@@ -69,4 +74,37 @@ body.swal2-shown {
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+}
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+.delay-3 {
+  animation-delay: 0.9s;
+}
+.delay-4 {
+  animation-delay: 1.2s;
+}
+.delay-5 {
+  animation-delay: 1.5s;
+}
+.delay-6 {
+  animation-delay: 1.8s;
+}
+.delay-7 {
+  animation-delay: 2.1s;
+}
+.delay-8 {
+  animation-delay: 2.4s;
+}
+.delay-9 {
+  animation-delay: 2.7s;
+}
+.delay-10 {
+  animation-delay: 3s;
+}
+.delay-11 {
+  animation-delay: 3.3s;
 }

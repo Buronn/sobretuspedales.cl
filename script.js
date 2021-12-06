@@ -202,25 +202,19 @@ window.onresize = function () {
         bike.style.top = (mapPosition.top + (mapHeight * data.lugares[bikeIdInt].y / 100)) + "px";
         bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
     }
-
 }
-window.addEventListener('DOMSubtreeModified', function() {
-
+window.addEventListener('DOMSubtreeModified', function () {
     var swalcontainer = document.querySelector(".swal2-container");
-
-
-
-    if(swalcontainer){
-      // Found it, do something
-      console.log("found");
-      //wait 2 seconds and do
-        setTimeout(function(){
+    if (swalcontainer) {
+        // Found it, do something
+        console.log("found");
+        //wait 2 seconds and do
+        setTimeout(function () {
             swalcontainer.style.overflowY = "hidden";
         }, 400);
     }
+}, false);
 
-  }, false);
-//wait document ready
 document.addEventListener("DOMContentLoaded", function () {
 
     var bikes = document.getElementsByClassName("bike");
@@ -290,7 +284,7 @@ function addBike(id) {
     newDiv.style.position = "absolute";
     newDiv.style.top = topPosition + "px";
     newDiv.style.left = leftPosition + "px";
-    newDiv.style.height = map.offsetHeight* 0.5 + "px";
+    newDiv.style.height = map.offsetHeight * 0.5 + "px";
     newDiv.style.width = map.offsetWidth * 0.5 + "px";
     newDiv.style.opacity = "1";
     newDiv.style.zIndex = "2";
@@ -314,12 +308,12 @@ function addBike(id) {
 
     Swal.fire({
         title: '<div style="position:relative;text-align:left;color:#FFFFFF;font-family: Arial;font-size:3vh"><strong>' + actual.autor.toUpperCase() + '\n' + actual.lugar + '</strong></div>',
-        html: "<iframe id='yt' style='position: sticky;width: "+map.offsetWidth* 0.4 + "px"+";height: "+map.offsetHeight* 0.3 + "px"+";' src='https://www.youtube.com/embed/" + actual.video + "'>",
+        html: "<iframe id='yt' style='position: sticky;width: " + map.offsetWidth * 0.4 + "px" + ";height: " + map.offsetHeight * 0.3 + "px" + ";' src='https://www.youtube.com/embed/" + actual.video + "'>",
         showCloseButton: true,
         overflowY: 'hidden',
         backdrop: false,
         height: map.offsetHeight * 0.4 + "px",
-        width: map.offsetWidth * 0.5+ "px",
+        width: map.offsetWidth * 0.5 + "px",
         target: document.getElementById(idiv),
         background: 'rgba(88, 125, 255)',
 
