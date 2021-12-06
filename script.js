@@ -215,6 +215,8 @@ window.addEventListener('DOMSubtreeModified', function () {
     }
 }, false);
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
 
@@ -231,11 +233,17 @@ document.addEventListener("DOMContentLoaded", function () {
         //offset when scrolling
         var Yoffset = window.pageYOffset;
         var Xoffset = window.pageXOffset;
-
+        
         bike.style.top = (mapPosition.top + (mapHeight * data.lugares[bikeIdInt].y / 100)) + "px";
         bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
-    }
-    }, 1000);
+        
+   
+    }}, 1000);
+    document.querySelectorAll('.bike').forEach(item => {
+        item.addEventListener('animationend', event => {
+          item.style.opacity = 1;
+        })
+      })
 });
 const slider = document.querySelector('html');
 let isDown = false;

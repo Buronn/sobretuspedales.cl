@@ -45,12 +45,11 @@ body.swal2-shown {
     }
   }
 .drop-in {
-    animation: dropIn ease 3s;
-    -webkit-animation: dropIn ease 3s;
-    -moz-animation: dropIn ease 3s;
-    -o-animation: dropIn ease 3s;
-    -ms-animation: dropIn ease 3s;
-    -webkit-animation: dropIn 1.0s forwards;
+    animation: dropIn ease 1s;
+    -webkit-animation: dropIn ease 1s;
+    -moz-animation: dropIn ease 1s;
+    -o-animation: dropIn ease 1s;
+    -ms-animation: dropIn ease 1s;
   }
   @keyframes dropIn{
     0% {
