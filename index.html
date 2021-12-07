@@ -42,14 +42,12 @@
                             let lastdegree = getRotationDegrees($("#pedal1")); //1200 .. i = 0, i< 360 - 1200%360, i = i + 200%360
                             clearInterval(this.iid);
                             let aux = 5;
-                            for (let i = lastdegree % 360; i <= 540; i += 10 ) {
+                            for (let i = lastdegree % 360; i <= 540; i += 10) {
                                 rotateAt(i);
                                 await sleep(aux);
                                 aux += 0.5;
                             }
                             this.iid && clearInterval(this.iid);
-
-
                         }
                     });
                 async function rotateAt(i) {
