@@ -242,8 +242,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.bike').forEach(item => {
         item.addEventListener('animationend', event => {
           item.style.opacity = 1;
+          let progress = document.getElementsByClassName("progress")[0];
+            progress.parentNode.removeChild(progress);
         })
       })
+
 });
 const slider = document.querySelector('html');
 let isDown = false;
@@ -318,7 +321,7 @@ function addBike(id) {
 
     Swal.fire({
         title: '<div style="position:relative;text-align:left;color:#FFFFFF;font-family: Arial;font-size:3vh"><strong>' + actual.autor.toUpperCase() + '\n' + actual.lugar + '</strong></div>',
-        html: "<iframe id='yt' style='position: sticky;width: " + map.offsetWidth * 0.4 + "px" + ";height: " + map.offsetHeight * 0.3 + "px" + ";' src='https://www.youtube.com/embed/" + actual.video + "'>",
+        html: "<iframe allow='fullscreen;' id='yt' style='position: sticky;width: " + map.offsetWidth * 0.4 + "px" + ";height: " + map.offsetHeight * 0.3 + "px" + ";' src='https://www.youtube.com/embed/" + actual.video + "'>",
         showCloseButton: true,
         overflowY: 'hidden',
         backdrop: false,
@@ -326,9 +329,8 @@ function addBike(id) {
         width: map.offsetWidth * 0.5 + "px",
         target: document.getElementById(idiv),
         background: 'rgba(88, 125, 255)',
-
         customClass: {
-            container: 'position-absolute'
+            container: 'position-absolute slow-animation',
         },
         showConfirmButton: false,
     }).then(function () {

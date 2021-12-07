@@ -62,9 +62,9 @@ body.swal2-shown {
     }
   }
 .zoom{
-    -webkit-transition: transform 0.5s ease-in-out;
-    -moz-transition: transform 0.5s ease-in-out;
-    transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
 .zoom:hover {
     -moz-transform: scale(1.2);
@@ -106,4 +106,7 @@ body.swal2-shown {
 }
 .delay-11 {
   animation-delay: 3.3s;
+}
+.slow-animation {
+  animation: swal2-show 0.01s !important; 
 }
