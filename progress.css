@@ -7,7 +7,7 @@
     display: flex;
     height: 40px;
     width: 500px;
-    
+
     position: absolute;
     top:0;
     bottom: 0;
@@ -29,3 +29,63 @@
     80% { opacity: 1; }
     100% { width: 100%;opacity: 0; }
   }
+
+  .rotate1{
+    animation: rotating 4s none;
+    width:50px;
+    height:50px;
+    position: absolute;
+  }
+  .rotate2{
+    animation: rotating 4s none;
+    width:50px;
+    height:50px;
+    top: 75px;
+    position:absolute;
+  }
+  span{
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 60px;
+    position: absolute;
+  }
+  .title{
+    position: absolute; /* or absolute */
+    
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    /* bring your own prefixes */
+    animation: fadeout 1s none;
+    /* animation delay */
+    animation-delay: 1s;  
+  }
+  @keyframes fadeout {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.5);
+      position: absolute;
+      top: 2%;
+      left: 2%;
+      opacity: 1;
+    }
+  } 
+
+  @keyframes rotating {
+   0%{
+      transform: rotateY(0deg);
+     }
+  100%{
+      transform: rotateY(2700deg);
+     }
+  }
+  

@@ -215,6 +215,9 @@ window.addEventListener('DOMSubtreeModified', function () {
     }
 }, false);
 
+const pedal1 = document.getElementById("pedal1");
+const pedal2 = document.getElementById("pedal2");
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -242,12 +245,23 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.bike').forEach(item => {
         item.addEventListener('animationend', event => {
           item.style.opacity = 1;
+          if (item == document.querySelectorAll('.bike')[0]){
           let progress = document.getElementsByClassName("progress")[0];
-            progress.parentNode.removeChild(progress);
+          //delete progress
+          progress.parentNode.removeChild(progress);
+          }
         })
       })
-
+    document.getElementById("title").addEventListener('animationend', event => {
+        document.getElementById("title").style.opacity = 1;
+        document.getElementById("title").style.top = "2%";
+        document.getElementById("title").style.left = "2%";
+        document.getElementById("title").style.transform = "scale(0.5)";
+        document.getElementById("pedal1").classList.add("rotate");
+        document.getElementById("pedal2").classList.add("rotate");
+    })
 });
+
 const slider = document.querySelector('html');
 let isDown = false;
 let startX;
