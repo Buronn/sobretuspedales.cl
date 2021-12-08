@@ -51,9 +51,11 @@
     padding-left: 60px;
     position: absolute;
   }
+  #title{
+    opacity: 0;
+  }
   .title{
     position: absolute; /* or absolute */
-    
     top: 50%;
     left: 50%;
     opacity: 0;
@@ -72,7 +74,7 @@
       opacity: 0;
     }
     100% {
-      transform: scale(0.5);
+      transform: scale(0.6);
       position: absolute;
       top: 2%;
       left: 2%;

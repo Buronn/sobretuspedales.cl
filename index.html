@@ -19,70 +19,29 @@
 <script src="script.js"></script>
 
 <body>
-    <div class="title" id="title">
-        <img class="pedal rotate1" id="pedal1" src="img/rotate1.png" alt="">
-        <img class="pedal rotate2" id="pedal2" src="img/rotate2.png" alt=""><span class="start-text">SOBRE <br> TUS <br>
+    <!--- Center title after initialize page --->
+    <h1 class="start">Presiona cualquier tecla para continuar</h1>
+    
+    <audio id="audio" autoplay>
+        <source src="sounds/test-audio.mp3" type="audio/mpeg">
+
+  </audio>
+    <div class="" id="title">
+        <img class="pedal " id="pedal1" src="img/rotate1.png" alt="">
+        <img class="pedal " id="pedal2" src="img/rotate2.png" alt=""><span class="start-text">SOBRE <br> TUS <br>
             PEDALES</span>
-        <script>
-            //detect animation ends
-            $(document).ready(function () {
-                const sleep = ms => new Promise(res => setTimeout(res, ms));
-                $("#title").on(
-                    {
-                        mouseenter: function () {
-                            var self = $(this);
-                            let i = 0;
-                            this.iid = setInterval(function () {
-                                $("#pedal1").css("transform", "rotateY(" + i + "deg)");
-                                $("#pedal2").css("transform", "rotateY(" + i + "deg)");
-                                i += 5;
-                            }, 10);
-                        },
-                        mouseleave: async function () {
-                            let lastdegree = getRotationDegrees($("#pedal1")); //1200 .. i = 0, i< 360 - 1200%360, i = i + 200%360
-                            clearInterval(this.iid);
-                            let aux = 5;
-                            for (let i = lastdegree % 360; i <= 540; i += 10) {
-                                rotateAt(i);
-                                await sleep(aux);
-                                aux += 0.5;
-                            }
-                            this.iid && clearInterval(this.iid);
-                        }
-                    });
-                async function rotateAt(i) {
-                    console.log(i);
-                    $("#pedal1").css("transform", "rotateY(" + i + "deg)");
-                    $("#pedal2").css("transform", "rotateY(" + i + "deg)");
-                }
-                function getRotationDegrees(obj) {
-                    var matrix = obj.css("-webkit-transform") ||
-                        obj.css("-moz-transform") ||
-                        obj.css("-ms-transform") ||
-                        obj.css("-o-transform") ||
-                        obj.css("transform");
-                    if (matrix !== 'none') {
-                        var values = matrix.split('(')[1].split(')')[0].split(',');
-                        var a = values[8];
-                        var b = values[10];
-                        var angle = Math.round(Math.atan2(a, b) * (180 / Math.PI));
-                    } else { var angle = 0; }
-                    return (angle < 0) ? angle + 360 : angle;
-                }
-            });
-        </script>
     </div>
-    <div class="progress">
-        <div class="progress-value"></div>
+    <div class="" id="progress">
+        <div class="" id="progress-value"></div>
     </div>
     <div class="outer" id="outer">
-        <img src="img/Santiago.png" id="stgo" class="map fade-in delay-4" alt="mapa">
+        <img src="img/Santiago.png" id="stgo" class="map" alt="mapa">
         <div class="im">
-            <img onclick="addBike('27')" id="27" src="img/bikebody.png" class="bike drop-in zoom delay-7" alt="bike">
-            <img onclick="addBike('0')" id="0" src="img/bikebody.png" class="bike drop-in zoom delay-7" alt="bike">
-            <img onclick="addBike('2')" id="2" src="img/bikebody.png" class="bike drop-in zoom delay-7" alt="bike">
-            <img onclick="addBike('3')" id="3" src="img/bikebody.png" class="bike drop-in zoom delay-7" alt="bike">
-            <img onclick="addBike('4')" id="4" src="img/bikebody.png" class="bike drop-in zoom delay-7" alt="bike">
+            <img onclick="addBike('27')" id="27" src="img/bikebody.png" class="bike" alt="bike">
+            <img onclick="addBike('0')" id="0" src="img/bikebody.png" class="bike" alt="bike">
+            <img onclick="addBike('2')" id="2" src="img/bikebody.png" class="bike" alt="bike">
+            <img onclick="addBike('3')" id="3" src="img/bikebody.png" class="bike" alt="bike">
+            <img onclick="addBike('4')" id="4" src="img/bikebody.png" class="bike" alt="bike">
         </div>
     </div>
     <div class="float-sm">

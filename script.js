@@ -183,9 +183,23 @@ data = {                                                            //DATA TEMPL
     ]
 
 }
-//constantly rezise the div
-window.onresize = function () {
+function startAllAnimations() {
+    //add class to elements
 
+    $("#progress").addClass("progress");
+    $("#progress-value").addClass("progress-value");
+    $("#stgo").addClass("fade-in");
+    $("#stgo").addClass("delay-4");
+    //añadir animación a todas las bicis
+    $(".bike").addClass("drop-in zoom delay-7");
+    $("#title").addClass("title");
+    $("#pedal1").addClass("rotate1");
+    $("#pedal2").addClass("rotate2");
+
+
+}
+// resize check
+window.onresize = function () {
     var bikes = document.getElementsByClassName("bike");
     var map = document.getElementById("stgo");
     //position bikes in different porcentages of the map
@@ -203,6 +217,7 @@ window.onresize = function () {
         bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
     }
 }
+// hidding scrollY
 window.addEventListener('DOMSubtreeModified', function () {
     var swalcontainer = document.querySelector(".swal2-container");
     if (swalcontainer) {
@@ -214,52 +229,110 @@ window.addEventListener('DOMSubtreeModified', function () {
         }, 400);
     }
 }, false);
-
 const pedal1 = document.getElementById("pedal1");
 const pedal2 = document.getElementById("pedal2");
 
+window.onload = function () {
+    document.addEventListener('keypress', musicPlay);
+    document.addEventListener('click', musicPlay);
+    function musicPlay() {
+        $("#audio")[0].volume = 0.01;
+        $("#audio")[0].play();
+        //volume
 
+        document.removeEventListener('click', musicPlay);
+    }
 
+}
+async function rotateAt(i) {
+    $("#pedal1").css("transform", "rotateY(" + i + "deg)");
+    $("#pedal2").css("transform", "rotateY(" + i + "deg)");
+}
+function getRotationDegrees(obj) {
+    var matrix = obj.css("-webkit-transform") ||
+        obj.css("-moz-transform") ||
+        obj.css("-ms-transform") ||
+        obj.css("-o-transform") ||
+        obj.css("transform");
+    if (matrix !== 'none') {
+        var values = matrix.split('(')[1].split(')')[0].split(',');
+        var a = values[8];
+        var b = values[10];
+        var angle = Math.round(Math.atan2(a, b) * (180 / Math.PI));
+    } else { var angle = 0; }
+    return (angle < 0) ? angle + 360 : angle;
+}
 document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(function () {
+    //dont do anything until key is pressed
+    const sleep = ms => new Promise(res => setTimeout(res, ms));
+    "keypress click".split(" ").forEach(function (e) {
+        document.addEventListener(e, function () {
+            startAllAnimations();
+            //delete h1 with class start
+            $(".start").remove();
+            setTimeout(function () {
+                var bikes = document.getElementsByClassName("bike");
+                var map = document.getElementById("stgo");
+                //position bikes in different porcentages of the map
+                for (var i = 0; i < bikes.length; i++) {
+                    var mapHeight = map.offsetHeight;
+                    var mapWidth = map.offsetWidth;
+                    var mapPosition = map.getBoundingClientRect();
+                    var bike = bikes[i];
+                    var bikeIdInt = parseInt(bike.id);
 
-    var bikes = document.getElementsByClassName("bike");
-    var map = document.getElementById("stgo");
-    //position bikes in different porcentages of the map
-    for (var i = 0; i < bikes.length; i++) {
-        var mapHeight = map.offsetHeight;
-        var mapWidth = map.offsetWidth;
-        var mapPosition = map.getBoundingClientRect();
-        var bike = bikes[i];
-        var bikeIdInt = parseInt(bike.id);
+                    //offset when scrolling
+                    var Yoffset = window.pageYOffset;
+                    var Xoffset = window.pageXOffset;
 
-        //offset when scrolling
-        var Yoffset = window.pageYOffset;
-        var Xoffset = window.pageXOffset;
-        
-        bike.style.top = (mapPosition.top + (mapHeight * data.lugares[bikeIdInt].y / 100)) + "px";
-        bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
-        
-   
-    }}, 1000);
-    document.querySelectorAll('.bike').forEach(item => {
-        item.addEventListener('animationend', event => {
-          item.style.opacity = 1;
-          if (item == document.querySelectorAll('.bike')[0]){
-          let progress = document.getElementsByClassName("progress")[0];
-          //delete progress
-          progress.parentNode.removeChild(progress);
-          }
-        })
-      })
-    document.getElementById("title").addEventListener('animationend', event => {
-        document.getElementById("title").style.opacity = 1;
-        document.getElementById("title").style.top = "2%";
-        document.getElementById("title").style.left = "2%";
-        document.getElementById("title").style.transform = "scale(0.5)";
-        document.getElementById("pedal1").classList.add("rotate");
-        document.getElementById("pedal2").classList.add("rotate");
-    })
+                    bike.style.top = (mapPosition.top + (mapHeight * data.lugares[bikeIdInt].y / 100)) + "px";
+                    bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
+                }
+            }, 1000);
+            $("#title").on(
+                {
+                    mouseenter: function () {
+                        var self = $(this);
+                        let i = 0;
+                        this.iid = setInterval(function () {
+                            $("#pedal1").css("transform", "rotateY(" + i + "deg)");
+                            $("#pedal2").css("transform", "rotateY(" + i + "deg)");
+                            i += 5;
+                        }, 10);
+                    },
+                    mouseleave: async function () {
+                        let lastdegree = getRotationDegrees($("#pedal1")); //1200 .. i = 0, i< 360 - 1200%360, i = i + 200%360
+                        clearInterval(this.iid);
+                        let aux = 5;
+                        for (let i = lastdegree % 360; i <= 540; i += 10) {
+                            rotateAt(i);
+                            await sleep(aux);
+                            aux += 0.5;
+                        }
+                        this.iid && clearInterval(this.iid);
+                    }
+                });
+            document.querySelectorAll('.bike').forEach(item => {
+                item.addEventListener('animationend', event => {
+                    item.style.opacity = 1;
+                    if (item == document.querySelectorAll('.bike')[0]) {
+                        let progress = document.getElementsByClassName("progress")[0];
+                        //delete progress
+                        progress.parentNode.removeChild(progress);
+                    }
+                })
+            })
+            document.getElementById("title").addEventListener('animationend', event => {
+                document.getElementById("title").style.opacity = 1;
+                document.getElementById("title").style.top = "2%";
+                document.getElementById("title").style.left = "2%";
+                document.getElementById("title").style.transform = "scale(0.6)";
+                document.getElementById("pedal1").classList.add("rotate");
+                document.getElementById("pedal2").classList.add("rotate");
+            })
+        });
+    });
+
 });
 
 const slider = document.querySelector('html');
