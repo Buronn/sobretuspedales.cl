@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="social.css">
-    <link rel="stylesheet" href="progress.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/social.css">
+    <link rel="stylesheet" href="styles/progress.css">
+    <link rel="stylesheet" href="styles/volume.css">
     <!--- Font Awesome --->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome-all.css">
     <!--- jQuery --->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Mapa</title>
+    <title>Sobre tus pedales</title>
 
 </head>
 <script src="script.js"></script>
@@ -21,11 +22,10 @@
 <body>
     <!--- Center title after initialize page --->
     <h1 class="start">Presiona cualquier tecla para continuar</h1>
-    
     <audio id="audio" autoplay>
         <source src="sounds/test-audio.mp3" type="audio/mpeg">
 
-  </audio>
+    </audio>
     <div class="" id="title">
         <div class="rectangle1"></div>
         <div class="rectangle2"></div>
@@ -36,13 +36,13 @@
             PEDALES</span>
     </div>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             const sleep = ms => new Promise(res => setTimeout(res, ms));
 
             $("#title").on(
-                
+
                 {
-                    
+
                     mouseenter: function () {
                         var self = $(this);
                         let i = 0;
@@ -90,11 +90,28 @@
           <a href="" target="_blank">Follow us!</a>
         </div> -->
         <div class="fl-fl float-ig">
-            <i class="fa fa-instagram"></i>
+            <i class="fab fa-instagram"></i>
             <a href="https://www.instagram.com/sobretuspedales/" target="_blank">Síguenos!</a>
         </div>
-
     </div>
+
+    <div class="fm float-pn">
+        <i id="mute-volume" class="fas fa-volume-up"></i>
+    </div>
+    <script>
+        $(".fm").click(function () {
+            if ($("#mute-volume").hasClass("fa-volume-up")) {
+                $("#mute-volume").removeClass("fa-volume-up");
+                $("#mute-volume").addClass("fa-volume-off");
+                $("#audio")[0].pause();
+            } else {
+                $("#mute-volume").removeClass("fa-volume-off");
+                $("#mute-volume").addClass("fa-volume-up");
+                $("#audio")[0].play();
+            }
+        });
+    </script>
+
 
 
 </body>

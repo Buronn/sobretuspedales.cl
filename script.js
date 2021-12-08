@@ -264,14 +264,16 @@ function getRotationDegrees(obj) {
     return (angle < 0) ? angle + 360 : angle;
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const sleep = ms => new Promise(res => setTimeout(res, ms));
     //dont do anything until key is pressed
-
     "keypress click".split(" ").forEach(function (e) {
         document.addEventListener(e, function () {
             startAllAnimations();
-            
+            const btn = document.querySelector(".btn");
+
+
             //delete h1 with class start
             $(".start").remove();
             setTimeout(function () {
@@ -346,14 +348,14 @@ slider.addEventListener('mousemove', (e) => {
 async function fadeOutVolume(audio) {
     const sleep = ms => new Promise(res => setTimeout(res, ms));
     let actual = audio.volume;
-    for (let i = audio.volume; i >= 0; i -= actual/10) {
+    for (let i = audio.volume; i >= 0; i -= actual / 10) {
         audio.volume = i;
         await sleep(100);
     }
 }
 async function fadeInVolume(audio, newVolume) {
     const sleep = ms => new Promise(res => setTimeout(res, ms));
-    for (let i = 0; i <= newVolume; i += newVolume/10) {
+    for (let i = 0; i <= newVolume; i += newVolume / 10) {
         audio.volume = i;
         console.log("new volume " + i);
         await sleep(100);
