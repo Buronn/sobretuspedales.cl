@@ -271,30 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "keypress click".split(" ").forEach(function (e) {
         document.addEventListener(e, function () {
             startAllAnimations();
-            $("#title").on(
-                {
-                    mouseenter: function () {
-                        var self = $(this);
-                        let i = 0;
-                        this.iid = setInterval(function () {
-                            $("#pedal1").css("transform", "rotateY(" + i + "deg)");
-                            $("#pedal2").css("transform", "rotateY(" + i + "deg)");
-                            i += 5;
-                        }, 10);
-                    },
-                    mouseleave: async function () {
-                        let lastdegree = getRotationDegrees($("#pedal1")); //1200 .. i = 0, i< 360 - 1200%360, i = i + 200%360
-                        clearInterval(this.iid);
-                        let aux = 5;
-                        for (let i = lastdegree % 360; i <= 540; i += 10) {
-                            rotateAt(i);
-                            console.log(i);
-                            await sleep(aux);
-                            aux += 0.5;
-                        }
-                        this.iid && clearInterval(this.iid);
-                    }
-                });
+            
             //delete h1 with class start
             $(".start").remove();
             setTimeout(function () {
