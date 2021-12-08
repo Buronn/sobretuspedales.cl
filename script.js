@@ -263,13 +263,38 @@ function getRotationDegrees(obj) {
     } else { var angle = 0; }
     return (angle < 0) ? angle + 360 : angle;
 }
-const sleep = ms => new Promise(res => setTimeout(res, ms));
+
 document.addEventListener("DOMContentLoaded", function () {
+    const sleep = ms => new Promise(res => setTimeout(res, ms));
     //dont do anything until key is pressed
 
     "keypress click".split(" ").forEach(function (e) {
         document.addEventListener(e, function () {
             startAllAnimations();
+            $("#title").on(
+                {
+                    mouseenter: function () {
+                        var self = $(this);
+                        let i = 0;
+                        this.iid = setInterval(function () {
+                            $("#pedal1").css("transform", "rotateY(" + i + "deg)");
+                            $("#pedal2").css("transform", "rotateY(" + i + "deg)");
+                            i += 5;
+                        }, 10);
+                    },
+                    mouseleave: async function () {
+                        let lastdegree = getRotationDegrees($("#pedal1")); //1200 .. i = 0, i< 360 - 1200%360, i = i + 200%360
+                        clearInterval(this.iid);
+                        let aux = 5;
+                        for (let i = lastdegree % 360; i <= 540; i += 10) {
+                            rotateAt(i);
+                            console.log(i);
+                            await sleep(aux);
+                            aux += 0.5;
+                        }
+                        this.iid && clearInterval(this.iid);
+                    }
+                });
             //delete h1 with class start
             $(".start").remove();
             setTimeout(function () {
@@ -291,29 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     bike.style.left = (mapPosition.left + Xoffset + (mapWidth * data.lugares[bikeIdInt].x / 100)) + "px";
                 }
             }, 1000);
-            $("#title").on(
-                {
-                    mouseenter: function () {
-                        var self = $(this);
-                        let i = 0;
-                        this.iid = setInterval(function () {
-                            $("#pedal1").css("transform", "rotateY(" + i + "deg)");
-                            $("#pedal2").css("transform", "rotateY(" + i + "deg)");
-                            i += 5;
-                        }, 10);
-                    },
-                    mouseleave: async function () {
-                        let lastdegree = getRotationDegrees($("#pedal1")); //1200 .. i = 0, i< 360 - 1200%360, i = i + 200%360
-                        clearInterval(this.iid);
-                        let aux = 5;
-                        for (let i = lastdegree % 360; i <= 540; i += 10) {
-                            rotateAt(i);
-                            await sleep(aux);
-                            aux += 0.5;
-                        }
-                        this.iid && clearInterval(this.iid);
-                    }
-                });
+
             document.querySelectorAll('.bike').forEach(item => {
                 item.addEventListener('animationend', event => {
                     item.style.opacity = 1;
@@ -364,16 +367,19 @@ slider.addEventListener('mousemove', (e) => {
     slider.scrollLeft = scrollLeft - walk;
 });
 async function fadeOutVolume(audio) {
-    for (let i = audio.volume; i >= 0; i -= 0.001) {
+    const sleep = ms => new Promise(res => setTimeout(res, ms));
+    let actual = audio.volume;
+    for (let i = audio.volume; i >= 0; i -= actual/10) {
         audio.volume = i;
         await sleep(100);
     }
 }
 async function fadeInVolume(audio, newVolume) {
-    for (let i = 0; i <= newVolume; i += 0.001) {
+    const sleep = ms => new Promise(res => setTimeout(res, ms));
+    for (let i = 0; i <= newVolume; i += newVolume/10) {
         audio.volume = i;
         console.log("new volume " + i);
-        await sleep(100); 
+        await sleep(100);
     }
 }
 
