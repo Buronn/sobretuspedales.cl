@@ -233,6 +233,7 @@ const pedal1 = document.getElementById("pedal1");
 const pedal2 = document.getElementById("pedal2");
 
 window.onload = function () {
+    $("#audio")[0].volume = 0.01;
     document.addEventListener('keypress', musicPlay);
     document.addEventListener('click', musicPlay);
     function musicPlay() {
@@ -364,7 +365,7 @@ slider.addEventListener('mousemove', (e) => {
 
 
 function addBike(id) {
-
+    $("#audio")[0].animate({volume: newVolume}, 1000);
     var bike = document.getElementById(id);
     //get top and left position of the element
     var topPosition = bike.offsetTop;
