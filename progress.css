@@ -41,14 +41,59 @@
     width:50px;
     height:50px;
     top: 75px;
+    left: 50px;
     position:absolute;
+  }
+  .rectangle1 {
+    width: 8px;
+    height: 93px;
+    left: 18px;
+    top: 2px;
+    background: rgb(231, 231, 231);
+    border-radius: 1px;
+    border-style: solid;
+    border-width: 3px;
+    position: absolute;
+  }
+  .rectangle2 {
+    width: 8px;
+    height: 93px;
+    left: 68px;
+    top: 25px;
+    background: rgb(231, 231, 231);
+    border-radius: 1px;
+    border-style: solid;
+    border-width: 3px;
+    position: absolute;
+  }
+  .square1{
+    width: 14px;
+    height: 10px;
+    left: 15px;
+    top: 45px;
+    background: rgb(88, 107, 190);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    position: absolute;
+  }
+  .square2{
+    width: 14px;
+    height: 10px;
+    left: 65px;
+    top: 65px;
+    background: rgb(88, 107, 190);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    position: absolute;
   }
   span{
     font-size: 40px;
     font-weight: bold;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    padding-left: 60px;
+    padding-left: 110px;
     position: absolute;
   }
   #title{
