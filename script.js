@@ -233,7 +233,7 @@ const pedal1 = document.getElementById("pedal1");
 const pedal2 = document.getElementById("pedal2");
 
 window.onload = function () {
-    $("#audio")[0].volume = 0.01;
+    $("#audio")[0].volume = 0;
     document.addEventListener('keypress', musicPlay);
     document.addEventListener('click', musicPlay);
     function musicPlay() {
@@ -263,9 +263,10 @@ function getRotationDegrees(obj) {
     } else { var angle = 0; }
     return (angle < 0) ? angle + 360 : angle;
 }
+const sleep = ms => new Promise(res => setTimeout(res, ms));
 document.addEventListener("DOMContentLoaded", function () {
     //dont do anything until key is pressed
-    const sleep = ms => new Promise(res => setTimeout(res, ms));
+
     "keypress click".split(" ").forEach(function (e) {
         document.addEventListener(e, function () {
             startAllAnimations();
@@ -362,10 +363,22 @@ slider.addEventListener('mousemove', (e) => {
     const walk = (x - startX); //scroll-fast
     slider.scrollLeft = scrollLeft - walk;
 });
-
+async function fadeOutVolume(audio) {
+    for (let i = audio.volume; i >= 0; i -= 0.001) {
+        audio.volume = i;
+        await sleep(100);
+    }
+}
+async function fadeInVolume(audio, newVolume) {
+    for (let i = 0; i <= newVolume; i += 0.001) {
+        audio.volume = i;
+        console.log("new volume " + i);
+        await sleep(100); 
+    }
+}
 
 function addBike(id) {
-    $("#audio")[0].animate({volume: newVolume}, 1000);
+    fadeOutVolume($("#audio")[0]);
     var bike = document.getElementById(id);
     //get top and left position of the element
     var topPosition = bike.offsetTop;
@@ -422,6 +435,7 @@ function addBike(id) {
         },
         showConfirmButton: false,
     }).then(function () {
+        fadeInVolume($("#audio")[0], 0.01);
         document.body.removeChild(document.getElementById(idiv));
     });
 }
