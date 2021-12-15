@@ -2,7 +2,7 @@ data = {                                                            //DATA TEMPL
     "lugares": [
         {
             "lugar": "Santiago",
-            "autor": "Pedro",
+            "autor": "Carolina",
             "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
             "x": 40,
             "y": 35
@@ -141,8 +141,11 @@ data = {                                                            //DATA TEMPL
         },
         {
             "lugar": "Cerrillos",
-            "autor": "Pedro",
-            "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ"
+            "autor": "Daniela",
+            "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
+            "x": 27,
+            "y": 45
+
         },
         {
             "lugar": "Estación Central",
