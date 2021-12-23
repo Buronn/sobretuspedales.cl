@@ -173,8 +173,8 @@ data = {                                                            //DATA TEMPL
             "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ"
         },
         {
-            "lugar": "Álvaro",
-            "autor": "Pedro",
+            "lugar": "Pudahuel",
+            "autor": "Álvaro",
             "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
             "x": 12,
             "y": 31
