@@ -3,7 +3,7 @@ data = {                                                            //DATA TEMPL
         {
             "lugar": "Santiago",
             "autor": "Carolina",
-            "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
+            "video": "IEUOVEOsrwk",
             "x": 40,
             "y": 35
 
@@ -142,7 +142,7 @@ data = {                                                            //DATA TEMPL
         {
             "lugar": "Cerrillos",
             "autor": "Daniela",
-            "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
+            "video": "U-9B6kTNMPg",
             "x": 27,
             "y": 45
 
@@ -155,7 +155,7 @@ data = {                                                            //DATA TEMPL
         {
             "lugar": "Maipú",
             "autor": "Cristián",
-            "video": "fjdpg04CdbE",
+            "video": "kBRuzzX7pys",
             "x": 15,
             "y": 50
 
@@ -259,7 +259,7 @@ window.onload = function () {
     document.addEventListener('keypress', musicPlay);
     document.addEventListener('click', musicPlay);
     function musicPlay() {
-        $("#audio")[0].volume = 0.01;
+        $("#audio")[0].volume = 0.1;
         $("#audio")[0].play();
         //volume
 
@@ -442,7 +442,7 @@ function addBike(id) {
         },
         showConfirmButton: false,
     }).then(function () {
-        fadeInVolume($("#audio")[0], 0.01);
+        fadeInVolume($("#audio")[0], 0.1);
         document.body.removeChild(document.getElementById(idiv));
     });
 }
