@@ -4,8 +4,8 @@ data = {                                                            //DATA TEMPL
             "lugar": "Santiago",
             "autor": "Carolina",
             "video": "IEUOVEOsrwk",
-            "x": 40,
-            "y": 35
+            "x": 37,
+            "y": 30
 
         },
         {
@@ -143,8 +143,8 @@ data = {                                                            //DATA TEMPL
             "lugar": "Cerrillos",
             "autor": "Daniela",
             "video": "U-9B6kTNMPg",
-            "x": 27,
-            "y": 45
+            "x": 25,
+            "y": 41
 
         },
         {
@@ -157,7 +157,7 @@ data = {                                                            //DATA TEMPL
             "autor": "Cristián",
             "video": "kBRuzzX7pys",
             "x": 15,
-            "y": 50
+            "y": 47
 
         },
         {
@@ -177,7 +177,7 @@ data = {                                                            //DATA TEMPL
             "autor": "Álvaro",
             "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
             "x": 12,
-            "y": 31
+            "y": 27
         },
         {
             "lugar": "Quinta Normal",
