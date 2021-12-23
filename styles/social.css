@@ -24,7 +24,20 @@
     width: 40px;
     margin-left: 4px;
   }
-
+  .far {
+    font-size: 25px;
+    color: #fff;
+    padding: 10px 0;
+    width: 40px;
+    margin-left: 4px;
+  }
+  .im {
+    font-size: 25px;
+    color: #fff;
+    padding: 10px 0;
+    width: 40px;
+    margin-left: 4px;
+  }
   
   .fl-fl:hover {
     right: 0;
@@ -42,8 +55,8 @@
     top: 160px;
   }
   
-  .float-tw {
-    top: 215px;
+  .float-yt {
+    top: 160px;
   }
   
   .float-gp {

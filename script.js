@@ -203,6 +203,23 @@ function startAllAnimations() {
 
 
 }
+function aboutUs() {
+    Swal.fire({
+        title: 'Sobre tus pedales',
+        html: "<div style='  text-align: justify; text-justify: inter-word;'><p>Sobre tus pedales es un docuweb interactivo que trata del vivir como ciclista en las calles y comunas de Santiago. Se enfoca en la misma acción de moverse, utilizando videos desde el punto de vista de la bicicleta en conjunto de diversos sonidos evocativos narrados por diferentes personajes que forman parte de este estilo de vida.</p>" +
+        "<p>Nuestra intención con este docuweb es explorar el ciclismo como una especie de disidencia al momento de movernos por la ciudad, no solo por estilo de vida saludable, sino como una alternativa al transporte y como una forma de autogestión. El espacio que toca ocupar no es ni de peatón, ni de vehículo motorizado, es una ambivalencia poco reconocida e incluso despreciada por aquellos que no forman parte de esta forma de vivir el espacio. De esta manera, surge la necesidad de reunir relatos y memorias en torno a la bicicleta y a los propios territorios.</p>" +
+        
+        "<p>Equipo técnico: </p>\n" +
+         "<ul>" +
+        "<li>Dirección: Sebastián Meléndez Millaqueo</li>" +
+        "<li>Producción: Patricio Guzmán Bello</li>" +
+        "<li>Dirección de fotografía: Miguel Del Peso</li>" +
+        "<li>Sonido: Evelyn Gormaz, Ignacio Oliva</li>" +
+        "<li>Propuesta interactiva: Andrés Croquevielle</li>" +
+        "<li>Diseñador web: Fernando Burón"+
+        "</ul></div>"
+    })
+}
 // resize check
 window.onresize = function () {
     var bikes = document.getElementsByClassName("bike");
