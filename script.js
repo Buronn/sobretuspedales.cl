@@ -173,9 +173,11 @@ data = {                                                            //DATA TEMPL
             "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ"
         },
         {
-            "lugar": "Pudahuel",
+            "lugar": "Álvaro",
             "autor": "Pedro",
-            "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ"
+            "video": "https://www.youtube.com/embed/q-_5ZQ-_5ZQ",
+            "x": 12,
+            "y": 31
         },
         {
             "lugar": "Quinta Normal",
